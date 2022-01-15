@@ -7,8 +7,11 @@
 <body>
 <tbody>
 <tr th:each="product: ${allInventories}">
-  <td th:text="${product.id}" />
-  <td th:text="${product.name}" />
+    <td th:text="${product.id}" />
+    <td th:text="${product.name}" />
+    <td th:text="${product.amount}" />
+    <td th:text="${product.price}" />
+    <br>
 </tr>
 </tbody>
 <form action = "#" th:action = "@{/index}" METHOD = "POST">
