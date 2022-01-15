@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+<header>
+    <title>Inventory Manager</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        table{
+            width: 100%;
+        }
+    </style>
+</header>
+<body>
+
+<div style = "margin-left:130px">
+    <div id="info" class="w3-container page w3-animate-opacity">
+        <div class="w3-container w3-teal">
+            <h1>Welcome to Inventory Manager</h1>
+        </div>
+        <h3 class = "heading"> Add Inventory: </h3>
+        <form action = "#" th:action="@{/insert}" th:object="${inventory}" METHOD="POST">
+            <input type="number" th:field="*{id}" placeholder="Product ID" name="p_id">
+            <input type="text" th:field="*{name}" placeholder="Product Name" name="p_name">
+            <input type="number" th:field="*{amount}" placeholder="Product Amount" name="p_num">
+            <input type="number" th:field="*{price}" placeholder="Price" name="p_price">
+            <input type="submit" name="add_info" value = "Add it!">
+        </form>
+        <h3 class = "heading"> Show all records: </h3>
+        <form action = "#" th:action = "@{/selectAll}" METHOD = "POST">
+            <input type = "submit" name = "show_all" value = "Select All">
+        </form>
+        <h3 class = "heading"> Delete Inventory: </h3>
+        <form action = "#" th:action="@{/delete}"  METHOD="POST">
+            <input type="number" th:name="id" placeholder="Product ID" name="p_id">
+            <input type="submit" value = "Delete it!">
+        </form>
+        <h3 class = "heading"> Update Inventory: </h3>
+        <form action = "#" th:action="@{/update}" th:object="${inventory}" METHOD="POST">
+            <input type="number" th:field="*{id}" placeholder="Product ID" name="p_id">
+            <input type="text" th:field="*{name}" placeholder="Product Name" name="p_name">
+            <input type="number" th:field="*{amount}" placeholder="Product Amount" name="p_num">
+            <input type="number" th:field="*{price}" placeholder="Price" name="p_price">
+            <input type="submit" value = "Update!">
+        </form>
+        <h3 class = "heading">  Export records into CSV: </h3>
+        <form action = "#" th:action = "@{/export}" METHOD = "POST">
+            <input type = "submit" value = "Export">
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
+
+

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SelectAll</title>
+</head>
+<body>
+<tbody>
+<tr th:each="product: ${allInventories}">
+  <td th:text="${product.id}" />
+  <td th:text="${product.name}" />
+</tr>
+</tbody>
+<form action = "#" th:action = "@{/index}" METHOD = "POST">
+    <input type = "submit"  value = "Back To Home Page">
+</form>
+</body>
+</html>
